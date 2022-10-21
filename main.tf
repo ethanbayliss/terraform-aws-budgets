@@ -2,7 +2,7 @@ resource "aws_budgets_budget" "monthly" {
   for_each = {for o in data.aws_organizations_organization.org.non_master_accounts: o.id => 
     merge( #add account tags to the account object
       o,
-      {tags = data.aws_organizations_resource_tags.child_accounts[o.id]}
+      {tags = data.aws_organizations_resource_tags.child_accounts[o.id].tags}
     )
   }
   
