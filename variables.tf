@@ -31,8 +31,13 @@ variable "notification_email" {
   type    = string
 }
 
-variable "per_account_limit" {
-  description = "Per account budget threshold in USD"
-  type        = string
-  default     = "30"
+variable "per_account_limits" {
+  description = "Per account budget threshold in USD. Tag accounts with \"env\" in order to populate these values"
+  type        = map
+  default     = {
+    untagged = "30"
+    sandbox  = "10",
+    dev      = "30",
+    prod     = "30"
+  }
 }
