@@ -4,6 +4,7 @@ resource "aws_budgets_budget" "monthly" {
       o,
       {tags = data.aws_organizations_resource_tags.child_accounts[o.id].tags}
     )
+    if o.status == "ACTIVE"
   }
   
   name              = format("%s - %s (%s)", "Monthly Budget", each.value.name, each.value.id)
