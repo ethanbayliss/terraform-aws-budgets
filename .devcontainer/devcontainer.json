@@ -1,7 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json
 {
 	"name": "Terraform",
-	"workspaceFolder": "/workspace",
 
 	"build": { 
 		"context": "..",
